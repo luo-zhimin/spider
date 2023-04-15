@@ -1,4 +1,6 @@
-# study_urllib induction
+"""
+    初识 urllib
+"""
 
 # 使用urllib获取百度首页源码
 import urllib.request
