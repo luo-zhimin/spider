@@ -34,10 +34,24 @@ def get_content(request):
     return response.read().decode('utf-8')
 
 
-def download(content):
-    f = open(f'first_douban_movie.json', 'w', encoding='utf-8')
-    f.write(content)
-    f.close()
+def download(content, url_content):
+    download_content(content)
+    print(url_content is not None)
+    download_url(url_content)
+
+
+def download_content(content):
+    if content is not None:
+        f = open(f'first_douban_movie.json', 'w', encoding='utf-8')
+        f.write(content)
+        f.close()
+
+
+def download_url(url_content):
+    if url_content is not None:
+        f = open(f'first_douban_url_title.json', 'w', encoding='utf-8')
+        f.write(url_content)
+        f.close()
 
 
 # page 动态获取
@@ -51,12 +65,16 @@ def get_page() -> int:
 
 
 result = []
+url_list = []
 for p in range(1, get_page() + 1):
-    # for p in range(1, 3):
+    # for p in range(1, 2):
     print(f"当前第{p}页")
     request = creat_request((p - 1) * 20)
     content = get_content(request)
-    # print(content)
+    # 准备组装url_title dict list
+    content_list = json.loads(content)
+    for cl in content_list:
+        url_list.append({'title': cl['title'], 'url': cl['url']})
     # print(json.loads(content))
     # 组装大的json对象
     result.append(json.loads(content))
@@ -64,9 +82,11 @@ for p in range(1, get_page() + 1):
     # download(content, p)
 
 result = json.dumps(result, ensure_ascii=False)
-print(result)
+url_list = json.dumps(url_list, ensure_ascii=False)
+# print(result)
+# print(url_list)
 # write
-download(result)
+download(result, url_list)
 
 if __name__ == '__main__':
     pass
