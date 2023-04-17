@@ -160,6 +160,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 # 爬取的视频+图片+网页 不进行上传
+*.json
 *.html
 *.jpg
 *.mp4
