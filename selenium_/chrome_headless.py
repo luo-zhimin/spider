@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 # 封装handlers
 def share_browser():
     # todo 不可以有特色符号  ->source error [/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome]
+    # 你安装的Chrome地址
     path = r'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     chrome_options = Options()
     chrome_options.add_argument('‐‐headless')
