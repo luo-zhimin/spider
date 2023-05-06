@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import chaojiying
 
 # 古诗文网
 login_url = 'https://so.gushiwen.cn/user/login.aspx?from=http://so.gushiwen.cn/user/collect.aspx'
@@ -50,8 +51,12 @@ imgContent = imgResponse.content
 with open('code.png', 'wb') as wp:
     wp.write(imgContent)
 
+# 打码平台
+cjy = chaojiying.Chaojiying_Client('1798677862', 'S8MfXe8eRg2ju2.', '948060')
+im = open('code.png', 'rb').read()
+code_name = cjy.PostPic(im, 1902).get('pic_str')
 # 后续可以进行图像识别 ocr
-code_name = input("请输入你的验证码: ")
+# code_name = input("请输入你的验证码: ")
 # print(code)
 # print(code_name)
 
