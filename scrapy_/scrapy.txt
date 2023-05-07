@@ -1,0 +1,10 @@
+scrapy安装mac
+    sudo -H pip3 install scrapy
+创建scrapy项目：
+    终端输入 scrapy startproject 项目名称
+创建爬虫文件：
+    （1）跳转到spiders文件夹 cd 目录名字/目录名字/spiders
+    （2）scrapy genspider 爬虫名字 网页的域名
+运行爬虫文件：
+    scrapy crawl 爬虫名称
+    注意：应在spiders文件夹内执行
