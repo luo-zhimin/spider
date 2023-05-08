@@ -1,0 +1,136 @@
+[1682606460.029][INFO]: Starting ChromeDriver 112.0.5615.49 (bd2a7bcb881c11e8cfe3078709382934e3916914-refs/branch-heads/5615@{#936}) on port 63426
+[1682606460.029][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1682606460.557][INFO]: [dcea96fdf4f319d04b99f51b2d147099] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [  ],
+            "extensions": [  ]
+         },
+         "pageLoadStrategy": "normal"
+      },
+      "firstMatch": [ {
+      } ]
+   }
+}
+[1682606460.560][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1682606460.561][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1682606460.561][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/p6/5bvsz1b90cs6zjz620mxmktw0000gn/T/.com.google.Chrome.QvAIvQ data:,
+[1682606461.593][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1682606461.615][INFO]: [dcea96fdf4f319d04b99f51b2d147099] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "112.0.5615.137",
+      "chrome": {
+         "chromedriverVersion": "112.0.5615.49 (bd2a7bcb881c11e8cfe3078709382934e3916914-refs/branch-heads/5615@{#936})",
+         "userDataDir": "/var/folders/p6/5bvsz1b90cs6zjz620mxmktw0000gn/T/.com.google.Chrome.QvAIvQ"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:63435"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "mac os x",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "dcea96fdf4f319d04b99f51b2d147099"
+}
+[1682606461.628][INFO]: [dcea96fdf4f319d04b99f51b2d147099] COMMAND Navigate {
+   "url": "https://www.baidu.com"
+}
+[1682606461.660][INFO]: Waiting for pending navigations...
+[1682606461.663][INFO]: Done waiting for pending navigations. Status: ok
+[1682606461.914][INFO]: Waiting for pending navigations...
+[1682606462.593][INFO]: Done waiting for pending navigations. Status: ok
+[1682606462.593][INFO]: [dcea96fdf4f319d04b99f51b2d147099] RESPONSE Navigate
+[1682606462.594][INFO]: [dcea96fdf4f319d04b99f51b2d147099] COMMAND FindElements {
+   "using": "link text",
+   "value": "地图"
+}
+[1682606462.594][INFO]: Waiting for pending navigations...
+[1682606462.595][INFO]: Done waiting for pending navigations. Status: ok
+[1682606462.609][INFO]: Waiting for pending navigations...
+[1682606462.609][INFO]: Done waiting for pending navigations. Status: ok
+[1682606462.609][INFO]: [dcea96fdf4f319d04b99f51b2d147099] RESPONSE FindElements [ {
+   "element-6066-11e4-a52e-4f735466cecf": "70b840de-b02c-4550-aa0d-03cd2171905c"
+} ]
+[1682606462.633][INFO]: [dcea96fdf4f319d04b99f51b2d147099] COMMAND QuitAll {
+}
+[1682606462.683][INFO]: [dcea96fdf4f319d04b99f51b2d147099] RESPONSE QuitAll
