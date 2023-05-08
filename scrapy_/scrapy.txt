@@ -1,5 +1,7 @@
-scrapy安装mac
+mac安装scrapy
     sudo -H pip3 install scrapy
+mac安装ipython
+    sudo -H pip3 install ipython
 创建scrapy项目：
     终端输入 scrapy startproject 项目名称
 创建爬虫文件：
@@ -8,3 +10,28 @@ scrapy安装mac
 运行爬虫文件：
     scrapy crawl 爬虫名称
     注意：应在spiders文件夹内执行
+
+项目结构
+    项目名字
+        项目名字
+            spiders文件夹
+                init
+                自定义的爬虫文件  核心功能文件 ***
+            init
+            items   定义数据结构的地方 爬取的数据包含哪些
+            middlewares 中间件 代理
+            pipelines 管道 用来处理下载的数据
+            settings 配置文件 robots协议 ua定义等
+
+response的属性和方法
+    response.text 获取的是响应的字符串
+    response.body 获取的是二进制数据
+    response.xpath 可以直接使用xpath进行选择解析内容
+
+    response.extract() 提取selector对象的data属性值
+    response.extract_first() 提取selector列表的第一个数据
+
+前提是需要安装 ipython
+scrapy shell 使用
+terminal 直接输入  scrapy shell www.baidu.com 会直接进入ipython
+
