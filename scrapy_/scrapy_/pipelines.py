@@ -12,7 +12,8 @@ import urllib.request
 class ScrapyPipeline:
     # before spider
     def open_spider(self, spider):
-        self.fp = open("book.json", 'w', encoding='utf-8')
+        # self.fp = open("./books/book.json", 'w', encoding='utf-8')
+        self.fp = open("./movie/movie.json", 'w', encoding='utf-8')
 
     # 如果要使用管道 需要在settings中开始管道 items 就是yield后面的book对象
     def process_item(self, item, spider):
@@ -43,4 +44,12 @@ class DangDangDownloadPipelines:
         name = './books/' + item.get('name') + ".jpg"
         urllib.request.urlretrieve(url=url, filename=name)
 
+        return item
+
+
+class MovieDownloadPipelines:
+
+    def process_item(self, item, spider):
+        name = './movie/' + item.get('movie_name') + ".jpg"
+        urllib.request.urlretrieve(url=item.get("movie_image"), filename=name)
         return item

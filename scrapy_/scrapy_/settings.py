@@ -66,7 +66,12 @@ ITEM_PIPELINES = {
     #  管道可以有多个 所以管道是有优先级 1-1000 越小越高
     "scrapy_.pipelines.ScrapyPipeline": 300,
     # 开启
-    'scrapy_.pipelines.DangDangDownloadPipelines': 301
+
+    # dang dang
+    # 'scrapy_.pipelines.DangDangDownloadPipelines': 301,
+
+    # movie
+    'scrapy_.pipelines.MovieDownloadPipelines': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
