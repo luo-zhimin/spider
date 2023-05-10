@@ -38,3 +38,9 @@ terminal 直接输入  scrapy shell www.baidu.com 会直接进入ipython
 CrawlSpider
 创建项目 scrapy startproject 项目名称
 创建爬虫文件 scrapy genspider -t crawl 爬虫名字 网页的域名
+
+setting中配置
+记录日志的文件
+LOG_FILE = '.spider.log'
+设置日志等级
+LOG_LEVEL = 'INFO'

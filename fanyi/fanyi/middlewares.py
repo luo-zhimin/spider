@@ -9,7 +9,7 @@ from scrapy import signals
 from itemadapter import is_item, ItemAdapter
 
 
-class ScrapySpiderMiddleware:
+class FanyiSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +56,7 @@ class ScrapySpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class ScrapyDownloaderMiddleware:
+class FanyiDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -78,7 +78,6 @@ class ScrapyDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        request.meta['proxy'] = 'https://113.68.202.10:9999'
         return None
 
     def process_response(self, request, response, spider):
