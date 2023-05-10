@@ -13,7 +13,9 @@ SPIDER_MODULES = ["scrapy_.spiders"]
 NEWSPIDER_MODULE = "scrapy_.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "scrapy_ (+http://www.yourdomain.com)"
+# USER_AGENT = "scrapy_ (+https://www.dushu.com)"
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 ' \
+             'Safari/537.36'
 
 # Obey robots.txt rules
 # 君子协议 默认开启 一般情况下不用遵守
@@ -71,8 +73,27 @@ ITEM_PIPELINES = {
     # 'scrapy_.pipelines.DangDangDownloadPipelines': 301,
 
     # movie
-    'scrapy_.pipelines.MovieDownloadPipelines': 302,
+    # 'scrapy_.pipelines.MovieDownloadPipelines': 302,
+
+    # book
+    # 'scrapy_.pipelines.BookDownloadPipelines': 303,
+
+    # mysql
+    'scrapy_.pipelines.MysqlPipelines': 304,
 }
+
+# 参数中 端口 字符集 需要注意
+# host
+DB_HOST = '127.0.0.1'
+# port
+DB_PORT = 3306
+# user
+DB_USER = 'root'
+# password
+DB_PASSWORD = '2020.0.l'
+DB_NAME = 'book'
+# utf-8 的- 不允许 写
+DB_CHARSET = 'utf8'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

@@ -12,8 +12,8 @@ import urllib.request
 class ScrapyPipeline:
     # before spider
     def open_spider(self, spider):
-        # self.fp = open("./books/book.json", 'w', encoding='utf-8')
-        self.fp = open("./movie/movie.json", 'w', encoding='utf-8')
+        self.fp = open("./books/book.json", 'w', encoding='utf-8')
+        # self.fp = open("./movie/movie.json", 'w', encoding='utf-8')
 
     # 如果要使用管道 需要在settings中开始管道 items 就是yield后面的book对象
     def process_item(self, item, spider):
@@ -53,3 +53,63 @@ class MovieDownloadPipelines:
         name = './movie/' + item.get('movie_name') + ".jpg"
         urllib.request.urlretrieve(url=item.get("movie_image"), filename=name)
         return item
+
+
+class BookDownloadPipelines:
+
+    def process_item(self, item, spider):
+        # download picture
+        # name = './books/' + item.get('book_name') + ".jpg"
+        # urllib.request.urlretrieve(url=item.get("book_image"), filename=name)
+        return item
+
+
+# 加载settings文件
+from scrapy.utils.project import get_project_settings
+import pymysql
+
+
+class MysqlPipelines:
+
+    # 链接mysql
+    def open_spider(self, spider):
+        # pass
+        settings = get_project_settings()
+        self.host = settings['DB_HOST']
+        self.port = settings['DB_PORT']
+        self.user = settings['DB_USER']
+        self.password = settings['DB_PASSWORD']
+        self.name = settings['DB_NAME']
+        self.charset = settings['DB_CHARSET']
+
+        self.connect()
+
+    def connect(self):
+        self.conn = pymysql.connect(
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.name,
+            charset=self.charset
+        )
+
+        self.cursor = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        # sql拼接
+        sql = 'insert into book(name,image) values ("{}","{}")' \
+            .format(item['book_name'], item['book_image'])
+
+        # 执行
+        self.cursor.execute(sql)
+        # 提交
+        self.conn.commit()
+
+        return item
+
+    def close_spider(self, spider):
+        # pass
+        # close
+        self.cursor.close()
+        self.conn.close()

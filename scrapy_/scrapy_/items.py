@@ -24,3 +24,9 @@ class ScrapyItem(scrapy.Item):
     movie_name = scrapy.Field()
     # 电影图片
     movie_image = scrapy.Field()
+
+    # 读书网
+    # 书名
+    book_name = scrapy.Field()
+    # 书图片
+    book_image = scrapy.Field()
